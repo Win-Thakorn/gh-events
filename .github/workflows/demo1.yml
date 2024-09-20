@@ -3,8 +3,23 @@ on:
   pull_request:
     types: # we can define type of event trigger 
       - opened
-      - closed
+      # - closed
+    branches:
+      - main
+      # - dev
+      # - 'dev-*'
+      # - 'feat/**'
   workflow_dispatch: # Also can add multiple type of event trigger in this format
+  push:
+    branches:
+      - main
+      # - dev
+      # - 'dev-*'
+      # - 'feat/**'
+    # paths: # it will trigger if a push or pull_request changes files in specifc path
+    #   - '**.js'
+    paths-ignore: # it will trigger if we did not change a file in specific path below
+      - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
