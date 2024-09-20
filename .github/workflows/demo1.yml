@@ -1,5 +1,10 @@
 name: Events Demo 1
-on: ...
+on:
+  pull_request:
+    types: # we can define type of event trigger 
+      - opened
+      - closed
+  workflow_dispatch: # Also can add multiple type of event trigger in this format
 jobs:
   deploy:
     runs-on: ubuntu-latest
